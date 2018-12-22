@@ -1,26 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <v-header></v-header>
+    <div class="tab">
+      <div class="tab-item">
+        <router-link to="/goods">商品</router-link>
+      </div>
+      <div class="tab-item"><router-link to="/ratings">评论</router-link></div>
+      <div class="tab-item"><router-link to="/seller">商家</router-link></div>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import header from './components/base/header.vue'
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    'v-header': header
   }
 }
 </script>
 <style lang="stylus">
 #app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+  width: 100%
+  height: 100%
+  .tab
+    display: flex
+    text-align : center
+    .tab-item
+      flex: 1
+      & > a
+        display: block
 </style>
